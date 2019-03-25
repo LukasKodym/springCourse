@@ -12,5 +12,4 @@ public class SpringCourseApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
-
 }
