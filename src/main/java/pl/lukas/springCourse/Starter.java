@@ -18,8 +18,10 @@ public class Starter implements CommandLineRunner {
         System.out.println(lancelot);
 
         Quest killTheDragon = new Quest("Zabij smoka");
-        Knighht percival = new Knighht("Percival", 31, killTheDragon);
+        Knighht percival = new Knighht("Percival", 31);
 
+        System.out.println(percival);
+        percival.setQuest(killTheDragon);
         System.out.println(percival);
 
     }
