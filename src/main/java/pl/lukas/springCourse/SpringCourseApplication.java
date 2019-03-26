@@ -8,9 +8,7 @@ import pl.lukas.springCourse.domain.Castle;
 @SpringBootApplication
 public class SpringCourseApplication {
 
-	public static void main(String[] args) {
-		ConfigurableApplicationContext ctx = SpringApplication.run(SpringCourseApplication.class, args);
-		Castle castle = (Castle) ctx.getBean("castle");
-		System.out.println(castle);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringCourseApplication.class, args);
+    }
 }
