@@ -1,6 +1,7 @@
 package pl.lukas.springCourse.domain;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +12,7 @@ public class Knight {
     private String name;
     @Value("29")
     private int age;
-//    private Quest quest;
+    private Quest quest;
 
     public Knight(){
 
@@ -28,12 +29,15 @@ public class Knight {
 //        this.age = age;
 //    }
 
-//    public void setQuest(Quest quest) {
-//        this.quest = quest;
-//    }
+    @Autowired
+    public void setQuest(Quest quest) {
+        System.out.println("Ustawiam zadanie dla rycerza");
+        this.quest = quest;
+    }
 
     @Override
     public String toString() {
-        return "Ryzerz o imieniu " + name + " (" +  age + ").";
+//        return "Ryzerz o imieniu " + name + " (" +  age + ").";
+        return "Ryzerz o imieniu " + name + " (" +  age + ") Ma za zadanie: " + quest + ".";
     }
 }

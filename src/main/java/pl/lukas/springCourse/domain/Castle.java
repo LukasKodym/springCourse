@@ -15,19 +15,20 @@ public class Castle {
     @Value("${my.castle.name:East Watch}")
     private String name;
 
-    @Autowired
     Knight knight;
 
-    public Castle() {
-
+    @Autowired
+    public Castle(Knight knight) {
+        this.knight = knight;
     }
+
     @PostConstruct
-    public void build (){
+    public void build() {
         System.out.println("Wybudowano zamek " + name);
     }
 
     @PreDestroy
-    public void tearDown (){
+    public void tearDown() {
         System.out.println("Zaraz wyburzymy zamek " + name);
     }
 
