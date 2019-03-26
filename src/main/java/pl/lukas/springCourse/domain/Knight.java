@@ -34,6 +34,6 @@ public class Knight {
 
     @Override
     public String toString() {
-        return "Ryzerz o imieniu " + name + " (" +  age + /*"). Zadanie: " + quest +*/ ".";
+        return "Ryzerz o imieniu " + name + " (" +  age + ").";
     }
 }
