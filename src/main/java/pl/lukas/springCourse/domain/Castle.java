@@ -1,5 +1,6 @@
 package pl.lukas.springCourse.domain;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -9,6 +10,9 @@ import javax.annotation.PreDestroy;
 public class Castle {
 
     private String name = "East Watch";
+
+    @Autowired
+    Knight knight;
 
     public Castle() {
 
@@ -25,6 +29,6 @@ public class Castle {
 
     @Override
     public String toString() {
-        return "Znajduje się tu zamek o nazwie " + this.name;
+        return "Znajduje się tu zamek o nazwie " + this.name + ". Zamieszkały przez rycerza " + knight;
     }
 }
