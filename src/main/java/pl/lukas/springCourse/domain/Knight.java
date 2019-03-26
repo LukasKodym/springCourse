@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class Knight {
 
-    @Value("Lancelot") // this is the same as: private String name = "Lancelot";
-    private String name;
-    @Value("29")
-    private int age;
+//    @Value("Lancelot") // this is the same as: private String name = "Lancelot";
+    private String name = "Lancelot";
+//    @Value("29")
+    private int age = 29;
     private Quest quest;
 
     public Knight(){
