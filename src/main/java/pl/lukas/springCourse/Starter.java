@@ -5,7 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import pl.lukas.springCourse.domain.Castle;
 
-@Component
+@Component("starter")
 public class Starter implements CommandLineRunner {
 
     @Autowired

@@ -10,11 +10,6 @@ import pl.lukas.springCourse.domain.Knight;
 import pl.lukas.springCourse.domain.Quest;
 
 @SpringBootApplication
-//@ComponentScan({"pl.lukas.springCourse", "pl.lukas.component"})
-////@ComponentScan(basePackageClasses = {Starter.class, Castle.class, Quest.class,
-////        Knight.class, TestComponent.class} ) // this works similar as example above
-
-@ImportResource("classpath:config/springConfig.xml")
 public class SpringCourseApplication {
 
     public static void main(String[] args) {
