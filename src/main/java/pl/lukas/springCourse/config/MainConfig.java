@@ -27,7 +27,11 @@ public class MainConfig {
         return knight;
     }
 
-
-
-
+    @Bean(name = "castle", initMethod = "build", destroyMethod = "tearDown")
+    @Value("${my.castle.name:East Watch}")
+    public Castle castle(String name){
+        Castle castle = new Castle(knight());
+        castle.setName(name);
+        return castle;
+    }
 }
