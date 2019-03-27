@@ -1,13 +1,5 @@
 package pl.lukas.springCourse.domain;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-
 public class Castle {
 
     private String name;
@@ -30,6 +22,10 @@ public class Castle {
 
     public void tearDown() {
         System.out.println("Zaraz wyburzymy zamek " + name);
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
