@@ -3,19 +3,16 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://www.springframework.org/schema/beans">
-    <context:component-scan base-package="pl.lukas"/> <!--this is instead of @ComponentScan i spring run application-->
-    <context:property-placeholder location="classpath:castle.properties"/>
 
+    <context:component-scan base-package="pl.lukas"/> <!--this is instead of @ComponentScan i spring run application-->
+
+    <import resource="classpath:config/castleConfig.xml"/>
+    
     <bean id="quest" class="pl.lukas.springCourse.domain.Quest"/>
     <bean id="knight" class="pl.lukas.springCourse.domain.Knight">
         <constructor-arg index="0" value="Lancelot"/>
         <constructor-arg index="1" value="29"/>
         <property name="quest" ref="quest"/>
-    </bean>
-
-    <bean id="castle" class="pl.lukas.springCourse.domain.Castle" init-method="build" destroy-method="tearDown">
-        <constructor-arg index="0" ref="knight"/>
-        <property name="name" value="${my.castle.name:East Watch}"/>
     </bean>
 
 </beans>
