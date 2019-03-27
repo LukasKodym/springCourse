@@ -14,8 +14,6 @@ import pl.lukas.springCourse.domain.Quest;
 @PropertySource("classpath:castle.properties")
 public class MainConfig {
 
-    @Value("${my.castle.name:East Watch}")
-    String name;
 
     @Bean
     public Quest createQuest() {
@@ -29,8 +27,9 @@ public class MainConfig {
         return knight;
     }
 
-    @Bean
-    public Castle castle(){
+    @Bean(name = "castle", initMethod = "build", destroyMethod = "tearDown")
+    @Value("${my.castle.name:East Watch}")
+    public Castle castle(String name){
         Castle castle = new Castle(knight());
         castle.setName(name);
         return castle;
