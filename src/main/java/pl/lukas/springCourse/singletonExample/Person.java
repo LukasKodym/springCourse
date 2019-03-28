@@ -6,4 +6,7 @@ public class Person {
     private int age;
     private Address address;
 
+    public String getName() {
+        return name;
+    }
 }
