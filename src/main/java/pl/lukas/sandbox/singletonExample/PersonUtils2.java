@@ -1,4 +1,4 @@
-package pl.lukas.springCourse.singletonExample;
+package pl.lukas.sandbox.singletonExample;
 
 public enum PersonUtils2 {
 

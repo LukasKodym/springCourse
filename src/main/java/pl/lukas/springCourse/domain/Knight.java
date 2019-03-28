@@ -1,10 +1,15 @@
 package pl.lukas.springCourse.domain;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Knight {
 
-//    @Value("Lancelot") // this is the same as: private String name = "Lancelot";
+    @Value("Lancelot") // this is the same as: private String name = "Lancelot";
     private String name;
-//    @Value("29")
+    @Value("29")
     private int age;
     private Quest quest;
 
@@ -23,7 +28,7 @@ public class Knight {
         this.age = age;
     }
 
-
+    @Autowired
     public void setQuest(Quest quest) {
         System.out.println("Ustawiam zadanie dla rycerza");
         this.quest = quest;

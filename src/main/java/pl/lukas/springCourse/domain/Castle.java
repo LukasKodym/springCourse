@@ -1,11 +1,19 @@
 package pl.lukas.springCourse.domain;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Castle {
 
+    @Value("${my.castle.name:East Watch}")
     private String name;
+
 
     Knight knight;
 
+    @Autowired
     public Castle(Knight knight) {
         this.knight = knight;
     }
