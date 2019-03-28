@@ -10,7 +10,7 @@
 
     <bean id="quest" class="pl.lukas.springCourse.domain.Quest" scope="prototype"/>
 
-    <bean id="lancelot" class="pl.lukas.springCourse.domain.Knight" scope="prototype">
+    <bean id="lancelot" class="pl.lukas.springCourse.domain.Knight" primary="true" scope="prototype">
         <constructor-arg index="0" value="Lancelot"/>
         <constructor-arg index="1" value="29"/>
         <property name="quest" ref="quest"/>
