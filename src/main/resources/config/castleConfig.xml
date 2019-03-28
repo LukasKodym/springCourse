@@ -9,8 +9,12 @@
     <bean id="castle" class="pl.lukas.springCourse.domain.Castle"
           init-method="build"
           destroy-method="tearDown">
-        <constructor-arg index="0" ref="knight"/>
+        <constructor-arg index="0" ref="lancelot"/>
         <property name="name" value="${my.castle.name:East Watch}"/>
+    </bean>
+
+    <bean id="tournament" class="pl.lukas.springCourse.domain.Tournament">
+        <property name="knight" ref="percival"/>
     </bean>
 
 </beans>
