@@ -16,7 +16,7 @@ public class MainConfig {
     Quest quest;
 
     @Bean(name = "lancelot")
-//    @Primary
+    @Primary
     public Knight lancelot() {
         Knight lancelot = new Knight("Lancelot", 29);
         lancelot.setQuest(quest);

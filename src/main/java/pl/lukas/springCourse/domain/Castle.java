@@ -14,7 +14,7 @@ public class Castle {
     Knight knight;
 
     @Autowired
-    public Castle(@Qualifier(value = "lancelot")  Knight knight) {
+    public Castle(Knight knight) {
         this.knight = knight;
     }
 
