@@ -2,12 +2,12 @@
 <beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns="http://www.springframework.org/schema/beans">
+       xmlns="http://www.springframework.org/schema/beans">
 
-    <context:component-scan base-package="pl.lukas"/> <!--this is instead of @ComponentScan i spring run application-->
+    <context:component-scan base-package="pl.lukas"/> <!--this is instead of @ComponentScan in spring run application-->
 
     <import resource="classpath:config/castleConfig.xml"/>
-    
+
     <bean id="quest" class="pl.lukas.springCourse.domain.Quest"/>
     <bean id="knight" class="pl.lukas.springCourse.domain.Knight" scope="prototype">
         <constructor-arg index="0" value="Lancelot"/>

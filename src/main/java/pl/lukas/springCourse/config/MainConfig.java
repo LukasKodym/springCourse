@@ -1,21 +1,17 @@
 package pl.lukas.springCourse.config;
 
-import org.springframework.beans.factory.annotation.Value;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
-import pl.lukas.springCourse.domain.Castle;
-import pl.lukas.springCourse.domain.Knight;
-import pl.lukas.springCourse.domain.Quest;
+
 
 @Configuration
 //@ImportResource("classpath:config/castleConfig.xml")
-//@PropertySource("classpath:castle.properties")
 public class MainConfig {
 
 
-//    @Bean
-//    public Quest createQuest() {
-//        return new Quest();
-//    }
+//    @Autowired
+//    Quest quest;
 //
 //    @Bean
 //    @Scope("prototype")
@@ -23,13 +19,5 @@ public class MainConfig {
 //        Knight knight = new Knight("Lancelot", 29);
 //        knight.setQuest(createQuest());
 //        return knight;
-//    }
-//
-//    @Bean(name = "castle", initMethod = "build", destroyMethod = "tearDown")
-//    @Value("${my.castle.name:East Watch}")
-//    public Castle castle(String name){
-//        Castle castle = new Castle(knight());
-//        castle.setName(name);
-//        return castle;
 //    }
 }
