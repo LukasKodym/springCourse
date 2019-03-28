@@ -1,10 +1,7 @@
 package pl.lukas.springCourse.config;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import pl.lukas.springCourse.domain.Castle;
 import pl.lukas.springCourse.domain.Knight;
 import pl.lukas.springCourse.domain.Quest;
@@ -21,6 +18,7 @@ public class MainConfig {
 //    }
 //
 //    @Bean
+//    @Scope("prototype")
 //    public Knight knight() {
 //        Knight knight = new Knight("Lancelot", 29);
 //        knight.setQuest(createQuest());

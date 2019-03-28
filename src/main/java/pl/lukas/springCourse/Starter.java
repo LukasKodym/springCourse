@@ -4,15 +4,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import pl.lukas.springCourse.domain.Castle;
+import pl.lukas.springCourse.domain.Turnament;
 
 @Component("starter")
+
 public class Starter implements CommandLineRunner {
 
     @Autowired
     Castle castle;
 
+    @Autowired
+    Turnament turnament;
+
     @Override
     public void run(String... args) throws Exception {
+        System.out.println(castle);
+        turnament.duel();
+        System.out.println(turnament);
         System.out.println(castle);
     }
 }

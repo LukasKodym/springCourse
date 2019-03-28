@@ -2,9 +2,12 @@ package pl.lukas.springCourse.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("prototype")
+//@Scope("singleton") // this scope is set as default
 public class Knight {
 
     @Value("Lancelot") // this is the same as: private String name = "Lancelot";
@@ -25,6 +28,14 @@ public class Knight {
 
     public Knight(String name, int age) {
         this.name = name;
+        this.age = age;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
         this.age = age;
     }
 
