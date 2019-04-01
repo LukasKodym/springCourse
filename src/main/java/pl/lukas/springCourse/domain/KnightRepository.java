@@ -13,17 +13,12 @@ import java.util.Map;
 @Component
 public class KnightRepository {
 
-    @Value("${my.castle.name:East Watch}")
-    private String name;
 
     Map<String, Knight> knights = new HashMap<>();
 
     public KnightRepository() {
     }
 
-    KnightRepository(String name) {
-        this.name = name;
-    }
 
     public void createKnight(String name, int age) {
         knights.put(name, new Knight(name, age));
@@ -52,4 +47,10 @@ public class KnightRepository {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "KnightRepository{" +
+                "knights=" + knights +
+                '}';
+    }
 }
