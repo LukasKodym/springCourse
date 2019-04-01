@@ -3,6 +3,7 @@ package pl.lukas.springCourse.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
+import pl.lukas.springCourse.domain.DuelingKnight;
 import pl.lukas.springCourse.domain.Knight;
 import pl.lukas.springCourse.domain.Quest;
 
@@ -24,8 +25,8 @@ public class MainConfig {
     }
 
     @Bean(name = "percival")
-    public Knight createKnightBean() {
-        Knight percival = new Knight("Percival", 25);
+    public DuelingKnight createKnightBean() {
+        DuelingKnight percival = new DuelingKnight("Percival", 25);
         percival.setQuest(quest);
         return percival;
     }
