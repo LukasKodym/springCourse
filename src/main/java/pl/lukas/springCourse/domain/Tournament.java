@@ -13,8 +13,9 @@ import java.util.stream.Collectors;
 @Component
 public class Tournament {
 
-//    @Autowired
-    Map<String, Knight> knights;
+    @Autowired
+    List<Knight> knights;
+//    Map<String, Knight> knights; // this collection is used without @Autowired annotation
 
     public Tournament() {
     }
@@ -23,7 +24,7 @@ public class Tournament {
 //        knight.setAge(knight.getAge() + 1);
     }
 
-    public void setKnight(Map<String, Knight> knights) {
+    public void setKnight(List<Knight> knights) {
         this.knights = knights;
     }
 
