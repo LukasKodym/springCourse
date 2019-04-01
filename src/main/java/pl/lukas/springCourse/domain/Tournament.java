@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class Tournament {
 
     @Autowired
-    List<DuelingKnight> knights;
+    List<Knight> knights;
 
     public Tournament() {
     }
@@ -22,7 +22,7 @@ public class Tournament {
 //        knight.setAge(knight.getAge() + 1);
     }
 
-    public void setKnight(List<DuelingKnight> knights) {
+    public void setKnight(List<Knight> knights) {
         this.knights = knights;
     }
 
