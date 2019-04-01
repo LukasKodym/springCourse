@@ -6,7 +6,7 @@
 
     <context:property-placeholder location="classpath:knightRepository.properties"/>
 
-    <bean id="castle" class="pl.lukas.springCourse.domain.repository.KnightRepository"
+    <bean id="castle" class="pl.lukas.springCourse.domain.repository.InMemoryRepository"
           init-method="build"
           destroy-method="tearDown">
         <constructor-arg index="0" ref="lancelot"/>
