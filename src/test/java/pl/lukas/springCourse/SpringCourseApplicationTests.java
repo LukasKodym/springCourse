@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import pl.lukas.springCourse.domain.KnightRepository;
+import pl.lukas.springCourse.domain.repository.KnightRepository;
 import pl.lukas.springCourse.domain.Knight;
 
 import static org.junit.Assert.assertEquals;

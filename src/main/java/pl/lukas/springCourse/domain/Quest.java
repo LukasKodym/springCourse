@@ -1,16 +1,11 @@
 package pl.lukas.springCourse.domain;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
-@Component
-@Scope("prototype")
 public class Quest {
 
     private String description;
 
-    public Quest() {
-        this.description = "uratuj księżniczkę";
+    public Quest(String description) {
+        this.description = description;
     }
 
     @Override

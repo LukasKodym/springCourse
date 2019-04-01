@@ -1,24 +1,19 @@
-package pl.lukas.springCourse.domain;
+package pl.lukas.springCourse.domain.repository;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-
+import org.springframework.stereotype.Repository;
+import pl.lukas.springCourse.domain.Knight;
 import javax.annotation.PostConstruct;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-@Component
+@Repository
 public class KnightRepository {
-
 
     Map<String, Knight> knights = new HashMap<>();
 
     public KnightRepository() {
     }
-
 
     public void createKnight(String name, int age) {
         knights.put(name, new Knight(name, age));
@@ -35,7 +30,6 @@ public class KnightRepository {
     public void deleteKnight(String name) {
         knights.remove(name);
     }
-
 
     @PostConstruct
     public void build() {
