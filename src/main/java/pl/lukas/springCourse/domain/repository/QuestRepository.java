@@ -3,7 +3,6 @@ package pl.lukas.springCourse.domain.repository;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Repository;
 import pl.lukas.springCourse.domain.Quest;
-
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +47,5 @@ public class QuestRepository {
         String description = descriptions.get(random.nextInt(descriptions.size()));
         System.out.println("Utworzyłem zadanie o opisie " + description);
         createQuest(description);
-
     }
 }
-

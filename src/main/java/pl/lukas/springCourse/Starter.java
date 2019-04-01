@@ -31,7 +31,5 @@ public class Starter implements CommandLineRunner {
 
         questService.assignRandomQuest("Lancelot");
         questService.assignRandomQuest("Percival");
-
-
     }
 }
