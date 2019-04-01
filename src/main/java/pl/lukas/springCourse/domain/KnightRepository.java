@@ -43,10 +43,6 @@ public class KnightRepository {
         createKnight("Percival", 25);
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     @Override
     public String toString() {
         return "KnightRepository{" +
