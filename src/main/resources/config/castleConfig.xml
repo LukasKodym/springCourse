@@ -15,10 +15,10 @@
 
     <bean id="tournament" class="pl.lukas.springCourse.domain.Tournament">
         <property name="knights">
-            <list>
-                <ref bean="percival"/>
-                <ref bean="lancelot"/>
-            </list>
+            <map>
+                <entry key="lancelot" value-ref="lancelot"/>
+                <entry key="percival" value-ref="percival"/>
+            </map>
         </property>
     </bean>
 
