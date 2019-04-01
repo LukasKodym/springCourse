@@ -25,7 +25,4 @@ public class QuestService {
         knightRepository.getKnight(knightName).setQuest(randomQuest);
         questRepository.deleteQuest(randomQuest);
     }
-
-
-
 }
