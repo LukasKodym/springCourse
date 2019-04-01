@@ -19,8 +19,12 @@ public class QuestRepository {
         return questList;
     }
 
+    public void deleteQuest(Quest quest) {
+        questList.remove(quest);
+    }
+
     @PostConstruct
-    public void init(){
+    public void init() {
         createQuest("Uratuj księżniczkę");
         createQuest("Weź udział w turniju");
     }
