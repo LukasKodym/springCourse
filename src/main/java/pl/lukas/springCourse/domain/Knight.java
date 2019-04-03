@@ -32,6 +32,14 @@ public class Knight {
         this.age = age;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Ryzerz o imieniu " + name + " (" +  age + ") Ma za zadanie: " + quest + ".";
