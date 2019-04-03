@@ -1,14 +1,9 @@
 package pl.lukas.springCourse.config;
 
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
-import pl.lukas.springCourse.domain.Knight;
-import pl.lukas.springCourse.domain.Quest;
 import pl.lukas.springCourse.domain.repository.DBKnightRepository;
 import pl.lukas.springCourse.domain.repository.InMemoryRepository;
 import pl.lukas.springCourse.domain.repository.KnightRepository;
-
 
 @Configuration
 public class MainConfig {
@@ -26,5 +21,4 @@ public class MainConfig {
         KnightRepository repo = new DBKnightRepository();
         return repo;
     }
-
 }

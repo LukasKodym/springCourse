@@ -1,8 +1,6 @@
 package pl.lukas.springCourse.domain.repository;
 
 import pl.lukas.springCourse.domain.Knight;
-
-import javax.annotation.PostConstruct;
 import java.util.Collection;
 
 public interface KnightRepository {

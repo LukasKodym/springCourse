@@ -13,7 +13,6 @@ public class Knight {
         this.age = 29;
     }
 
-
     public Knight(String name, int age) {
         this.name = name;
         this.age = age;

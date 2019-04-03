@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.lukas.springCourse.domain.Knight;
 import pl.lukas.springCourse.services.KnightService;
-
 import java.util.List;
 
 
@@ -22,5 +21,4 @@ public class KnightController {
         model.addAttribute("knights",allKnights);
         return "knights";
     }
-
 }
