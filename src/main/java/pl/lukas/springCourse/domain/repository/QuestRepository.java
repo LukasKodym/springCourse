@@ -45,7 +45,6 @@ public class QuestRepository {
         descriptions.add("Zabij smoka");
 
         String description = descriptions.get(random.nextInt(descriptions.size()));
-        System.out.println("Utworzyłem zadanie o opisie " + description);
-        createQuest(description);
+            createQuest(description);
     }
 }
