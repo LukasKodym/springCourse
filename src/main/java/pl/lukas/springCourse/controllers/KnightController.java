@@ -20,7 +20,8 @@ public class KnightController {
     public String getKnights(Model model){
         List<Knight> allKnights = service.getAllKnights();
         model.addAttribute("knights",allKnights);
-        return "";
+        model.addAttribute("hello","witaj Świecie");
+        return "knights";
     }
 
 }
