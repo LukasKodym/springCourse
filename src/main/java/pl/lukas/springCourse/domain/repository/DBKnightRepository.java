@@ -36,4 +36,10 @@ public class DBKnightRepository implements KnightRepository {
     public void build() {
     }
 
+    @Override
+    public void createKnight(Knight knight) {
+        System.out.println("Używam bazy danych");
+        throw new NotImplementedException();
+    }
+
 }

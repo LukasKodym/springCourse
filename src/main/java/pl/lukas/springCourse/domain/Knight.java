@@ -8,9 +8,8 @@ public class Knight {
     private int age;
     private Quest quest;
 
-    public Knight(){
-        this.name = "Lancelot";
-        this.age = 29;
+
+    public Knight() {
     }
 
     public Knight(String name, int age) {
@@ -56,4 +55,6 @@ public class Knight {
     public int hashCode() {
         return Objects.hash(age);
     }
+
+
 }

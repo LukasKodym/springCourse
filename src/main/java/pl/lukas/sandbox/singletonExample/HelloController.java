@@ -1,4 +1,4 @@
-package pl.lukas.springCourse.controllers;
+package pl.lukas.sandbox.singletonExample;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
