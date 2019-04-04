@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://thymeleaf.org">
-
 <head>
     <title>Knight List</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -9,24 +8,22 @@
 
     <script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
-
 </head>
-
 <body>
 <div class="container">
     <table class="table">
         <thead>
         <tr>
             <td>Imie rycerza</td>
-            <td>Wiek</td>
+            <td>Poziom</td>
             <td></td>
         </tr>
         </thead>
         <tbody th:each="knight : ${knights}">
         <tr>
             <td th:text="${knight.name}"></td>
-            <td th:text="${knight.age}"></td>
-            <td><a th:href="$/knight?id=${knight.id}">Podgląd</a></td>
+            <td th:text="${knight.level}"></td>
+            <td><a th:href="${'/knight?id='+knight.id}">Podgląd</a></td>
         </tr>
         </tbody>
     </table>
@@ -35,5 +32,4 @@
     </div>
 </div>
 </body>
-
 </html>

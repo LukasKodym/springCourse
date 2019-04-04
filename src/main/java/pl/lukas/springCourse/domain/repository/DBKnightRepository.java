@@ -48,5 +48,4 @@ public class DBKnightRepository implements KnightRepository {
         System.out.println("Używam bazy danych");
         throw new NotImplementedException();
     }
-
 }

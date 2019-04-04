@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.lukas.springCourse.domain.Knight;
 import pl.lukas.springCourse.services.KnightService;
-
 import java.util.List;
-
 
 @Controller
 public class KnightController {

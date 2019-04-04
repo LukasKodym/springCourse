@@ -10,6 +10,7 @@ import java.util.Random;
 
 @Repository
 public class QuestRepository {
+
     List<Quest> questList = new ArrayList<>();
     Random random = new Random();
 

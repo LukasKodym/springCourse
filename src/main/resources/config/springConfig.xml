@@ -26,5 +26,4 @@
     <task:scheduled-tasks>
         <task:scheduled ref="questRepository" method="createRandomQuest" fixed-rate="1000"/>
     </task:scheduled-tasks>
-
 </beans>

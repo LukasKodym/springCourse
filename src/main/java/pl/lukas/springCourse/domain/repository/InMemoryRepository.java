@@ -1,7 +1,6 @@
 package pl.lukas.springCourse.domain.repository;
 
 import pl.lukas.springCourse.domain.Knight;
-
 import javax.annotation.PostConstruct;
 import java.util.Collection;
 import java.util.HashMap;
@@ -31,9 +30,12 @@ public class InMemoryRepository implements KnightRepository {
         if (knights.isEmpty()) {
             return 0;
         } else {
-            return knights.keySet().stream().max(Integer::max).get();
+            Integer integer = knights.keySet()
+                    .stream()
+                    .max(Integer::max)
+                    .get();
+            return integer + 1;
         }
-
     }
 
     @Override
