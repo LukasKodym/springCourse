@@ -1,5 +1,6 @@
 package pl.lukas.springCourse.domain.repository;
 
+import org.springframework.stereotype.Repository;
 import pl.lukas.springCourse.domain.Knight;
 import pl.lukas.springCourse.utils.Ids;
 

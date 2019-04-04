@@ -16,6 +16,9 @@ public class KnightService {
     @Autowired
     KnightRepository knightRepository;
 
+    @Autowired
+    PlayerInformation playerInformation;
+
     public List<Knight> getAllKnights() {
         return new ArrayList<>(knightRepository.getAllKnights());
     }
@@ -46,4 +49,15 @@ public class KnightService {
                 .forEach(knight -> knight.setQuest(null));
         return sum;
     }
+
+    public void getMyGold() {
+
+        List<Knight> allKnights = getAllKnights();
+        allKnights.forEach(knight -> {
+            if (knight.getQuest() != null) knight.getQuest().isCompleted();
+        });
+        int currentGold = playerInformation.getGold();
+        playerInformation.setGold(currentGold + collectReward());
+    }
+
 }
