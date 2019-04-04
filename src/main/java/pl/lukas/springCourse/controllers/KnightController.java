@@ -12,7 +12,6 @@ import pl.lukas.springCourse.components.TimeComponent;
 import pl.lukas.springCourse.domain.Knight;
 import pl.lukas.springCourse.domain.PlayerInformation;
 import pl.lukas.springCourse.services.KnightService;
-
 import javax.validation.Valid;
 import java.util.List;
 

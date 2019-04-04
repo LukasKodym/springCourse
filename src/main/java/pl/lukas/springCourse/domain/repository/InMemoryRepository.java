@@ -32,7 +32,7 @@ public class InMemoryRepository implements KnightRepository {
         } else {
             Integer integer = knights.keySet()
                     .stream()
-                    .max(Integer::max)
+                    .max((o1, o2) -> o1.compareTo(o2))
                     .get();
             return integer + 1;
         }
