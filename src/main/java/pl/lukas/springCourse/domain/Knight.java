@@ -1,6 +1,7 @@
 package pl.lukas.springCourse.domain;
 
 import org.hibernate.validator.constraints.Range;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Objects;
@@ -31,7 +32,7 @@ public class Knight {
     }
 
     public void setQuest(Quest quest) {
-        System.out.println("Ustawiam zadanie dla rycerza");
+        quest.setStarted(true);
         this.quest = quest;
     }
 
@@ -65,6 +66,10 @@ public class Knight {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    public Quest getQuest() {
+        return quest;
     }
 
     @Override
