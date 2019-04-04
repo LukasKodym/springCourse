@@ -50,19 +50,7 @@ public class WebContextTest {
     @Test
     public void testCheckQuest() throws Exception {
 
-        Quest quest = new Quest(0, "Zadanie testowe");
-
-        Knight percival = new Knight("Percival", 33);
-        Knight percival2 = new Knight("Percival2", 34);
-
-        percival.setQuest(quest);
-
-        List<Knight> knights = new ArrayList<>(2);
-        knights.add(percival);
-        knights.add(percival2);
-
-        when(knightService.getAllKnights()).thenReturn(knights);
-        mockMvc.perform(get("/checkquests"))
+        mockMvc.perform(get("/checkquest"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/knights"));
                 }

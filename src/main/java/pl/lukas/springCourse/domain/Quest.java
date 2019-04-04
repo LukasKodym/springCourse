@@ -22,7 +22,7 @@ public class Quest {
 
     public boolean isCompleted() {
         if (this.completed) {
-            return true;
+            return this.completed;
         } else {
             LocalDateTime now = LocalDateTime.now();
             LocalDateTime questEndDate = this.startDate.plusSeconds(this.lengthInSeconds);

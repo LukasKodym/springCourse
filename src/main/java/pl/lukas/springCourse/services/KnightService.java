@@ -8,6 +8,7 @@ import pl.lukas.springCourse.domain.repository.KnightRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @Component
@@ -40,13 +41,24 @@ public class KnightService {
     }
 
     public int collectReward() {
+
+        Predicate<Knight> knightPredicate = knight -> {
+            if (knight.getQuest() != null) {
+                return knight.getQuest().isCompleted();
+            } else {
+                return false;
+            }
+        };
+
         int sum = knightRepository.getAllKnights().stream()
-                .filter(knight -> knight.getQuest().isCompleted())
+                .filter(knightPredicate)
                 .mapToInt(knight -> knight.getQuest().getReward())
                 .sum();
+
         knightRepository.getAllKnights().stream()
-                .filter(knight -> knight.getQuest().isCompleted())
+                .filter(knightPredicate)
                 .forEach(knight -> knight.setQuest(null));
+
         return sum;
     }
 
@@ -59,5 +71,4 @@ public class KnightService {
         int currentGold = playerInformation.getGold();
         playerInformation.setGold(currentGold + collectReward());
     }
-
 }
