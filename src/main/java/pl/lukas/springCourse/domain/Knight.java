@@ -1,11 +1,14 @@
 package pl.lukas.springCourse.domain;
 
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 public class Knight {
 
     private int id;
+    @NotNull
     private String name;
+    @NotNull
     private int age;
     private Quest quest;
     private int level;
