@@ -20,7 +20,7 @@ public class Knight {
         this.level = 1;
     }
 
-      public void setQuest(Quest quest) {
+    public void setQuest(Quest quest) {
         System.out.println("Ustawiam zadanie dla rycerza");
         this.quest = quest;
     }
@@ -59,7 +59,7 @@ public class Knight {
 
     @Override
     public String toString() {
-        return "Ryzerz o imieniu " + name + " (" +  age + ") Ma za zadanie: " + quest + ".";
+        return "Ryzerz o imieniu " + name + " (" + age + ") Ma za zadanie: " + quest + ".";
     }
 
     @Override

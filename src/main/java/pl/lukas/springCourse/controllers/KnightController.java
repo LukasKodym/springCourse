@@ -7,12 +7,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import pl.lukas.springCourse.components.TimeComponent;
 import pl.lukas.springCourse.domain.Knight;
 import pl.lukas.springCourse.services.KnightService;
+
 import java.util.List;
 
 @Controller
 public class KnightController {
+
+    @Autowired
+    TimeComponent timeComponent;
 
     @Autowired // in first step there was injected KnightRepository but better is to do via service
             KnightService service;
@@ -21,19 +26,22 @@ public class KnightController {
     public String getKnights(Model model) {
         List<Knight> allKnights = service.getAllKnights();
         model.addAttribute("knights", allKnights);
+        model.addAttribute("timecomponent", timeComponent);
         return "knights";
     }
 
     @RequestMapping("/knight")
-    public String getKnight(@RequestParam("id") Integer id, Model model){
+    public String getKnight(@RequestParam("id") Integer id, Model model) {
         Knight knight = service.getKnight(id);
         model.addAttribute("knight", knight);
+        model.addAttribute("timecomponent", timeComponent);
         return "knight";
     }
 
     @RequestMapping("/newknight")
     public String createKnight(Model model) {
         model.addAttribute("knight", new Knight());
+        model.addAttribute("timecomponent", timeComponent);
         return "knightform";
     }
 
