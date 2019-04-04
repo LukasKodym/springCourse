@@ -1,15 +1,25 @@
 package pl.lukas.springCourse.domain;
 
+import org.hibernate.validator.constraints.Range;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 public class Knight {
 
     private int id;
+
     @NotNull
+    @Min(2)
+    @Max(40)
     private String name;
+
     @NotNull
+    @Range(min = 18, max = 60)
     private int age;
+
     private Quest quest;
     private int level;
 
