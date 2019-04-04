@@ -1,6 +1,8 @@
 package pl.lukas.springCourse.domain.repository;
 
 import pl.lukas.springCourse.domain.Knight;
+import pl.lukas.springCourse.utils.Ids;
+
 import javax.annotation.PostConstruct;
 import java.util.Collection;
 import java.util.HashMap;
@@ -22,20 +24,8 @@ public class InMemoryRepository implements KnightRepository {
     @Override
     public void createKnight(String name, int age) {
         Knight newKnight = new Knight(name, age);
-        newKnight.setId(getNewId());
+        newKnight.setId(Ids.generateNewId(knights.keySet()));
         knights.put(newKnight.getId(), newKnight);
-    }
-
-    private int getNewId() {
-        if (knights.isEmpty()) {
-            return 0;
-        } else {
-            Integer integer = knights.keySet()
-                    .stream()
-                    .max((o1, o2) -> o1.compareTo(o2))
-                    .get();
-            return integer + 1;
-        }
     }
 
     @Override
@@ -67,7 +57,7 @@ public class InMemoryRepository implements KnightRepository {
 
     @Override
     public void createKnight(Knight knight) {
-        knight.setId(getNewId());
+        knight.setId(Ids.generateNewId(knights.keySet()));
         knights.put(knight.getId(), knight);
     }
 
