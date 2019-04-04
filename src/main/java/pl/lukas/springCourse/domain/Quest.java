@@ -2,6 +2,7 @@ package pl.lukas.springCourse.domain;
 
 public class Quest {
 
+    private int id;
     private String description;
     private int reward = 100;
     private int length = 30000;
@@ -11,7 +12,8 @@ public class Quest {
     public Quest() {
     }
 
-    public Quest(String description) {
+    public Quest(int id, String description) {
+        this.id = id;
         this.description = description;
     }
 
@@ -53,6 +55,14 @@ public class Quest {
 
     public void setStarted(boolean started) {
         this.started = started;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override

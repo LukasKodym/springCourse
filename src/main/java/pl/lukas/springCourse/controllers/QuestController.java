@@ -10,7 +10,6 @@ import pl.lukas.springCourse.domain.Knight;
 import pl.lukas.springCourse.domain.Quest;
 import pl.lukas.springCourse.services.KnightService;
 import pl.lukas.springCourse.services.QuestService;
-
 import java.util.List;
 
 @Controller
@@ -33,7 +32,9 @@ public class QuestController {
     @RequestMapping(value = "/assignquest", method = RequestMethod.POST)
     public String assignQuest(Knight knight){
         knightService.updateKnight(knight);
-        return "assignquest";
+        Quest quest = knight.getQuest();
+        questService.update(quest);
+        return "redirect:/knights";
     }
 }
 
