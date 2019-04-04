@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.lukas.springCourse.domain.Knight;
 import pl.lukas.springCourse.domain.repository.KnightRepository;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,5 +24,9 @@ public class KnightService {
 
     public Knight getKnight(Integer id) {
         return knightRepository.getKnightById(id);
+    }
+
+    public void deleteKnight(Integer id) {
+        knightRepository.deleteKnight(id);
     }
 }

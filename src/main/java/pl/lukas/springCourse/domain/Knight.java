@@ -11,6 +11,7 @@ public class Knight {
     private int level;
 
     public Knight() {
+        this.level = 1;
     }
 
     public Knight(String name, int age) {

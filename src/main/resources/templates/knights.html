@@ -24,6 +24,7 @@
             <td th:text="${knight.name}"></td>
             <td th:text="${knight.level}"></td>
             <td><a th:href="${'/knight?id='+knight.id}">Podgląd</a></td>
+            <td><a th:href="${'/knight/delete/'+knight.id}">Usuń</a></td>
         </tr>
         </tbody>
     </table>
