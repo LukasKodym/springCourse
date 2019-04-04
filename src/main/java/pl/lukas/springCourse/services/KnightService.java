@@ -44,5 +44,6 @@ public class KnightService {
         knightRepository.getAllKnights().stream()
                 .filter(knight -> knight.getQuest().isCompleted())
                 .forEach(knight -> knight.setQuest(null));
+        return sum;
     }
 }

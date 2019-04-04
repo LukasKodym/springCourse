@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import pl.lukas.springCourse.domain.Quest;
 import pl.lukas.springCourse.domain.repository.KnightRepository;
 import pl.lukas.springCourse.domain.repository.QuestRepository;
-
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
