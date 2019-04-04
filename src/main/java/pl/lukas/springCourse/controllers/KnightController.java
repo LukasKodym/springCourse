@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.lukas.springCourse.components.TimeComponent;
 import pl.lukas.springCourse.domain.Knight;
+import pl.lukas.springCourse.domain.PlayerInformation;
 import pl.lukas.springCourse.services.KnightService;
-
 import java.util.List;
 
 @Controller
@@ -18,6 +18,9 @@ public class KnightController {
 
     @Autowired
     TimeComponent timeComponent;
+
+    @Autowired
+    PlayerInformation playerInformation;
 
     @Autowired // in first step there was injected KnightRepository but better is to do via service
             KnightService service;
@@ -27,6 +30,7 @@ public class KnightController {
         List<Knight> allKnights = service.getAllKnights();
         model.addAttribute("knights", allKnights);
         model.addAttribute("timecomponent", timeComponent);
+        model.addAttribute("playerinformation", playerInformation);
         return "knights";
     }
 
@@ -35,6 +39,7 @@ public class KnightController {
         Knight knight = service.getKnight(id);
         model.addAttribute("knight", knight);
         model.addAttribute("timecomponent", timeComponent);
+        model.addAttribute("playerinformation", playerInformation);
         return "knight";
     }
 
@@ -42,6 +47,7 @@ public class KnightController {
     public String createKnight(Model model) {
         model.addAttribute("knight", new Knight());
         model.addAttribute("timecomponent", timeComponent);
+        model.addAttribute("playerinformation", playerInformation);
         return "knightform";
     }
 
