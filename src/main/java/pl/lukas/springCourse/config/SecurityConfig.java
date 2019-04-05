@@ -18,7 +18,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/knight").hasAnyRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
-                .httpBasic();
+                .formLogin().defaultSuccessUrl("/knights");
     }
 
     @Autowired
