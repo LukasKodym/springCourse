@@ -4,7 +4,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import pl.lukas.springCourse.domain.Quest;
-import javax.annotation.PostConstruct;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.*;
@@ -14,8 +14,6 @@ public class QuestRepository {
 
     @PersistenceContext
     private EntityManager em;
-
-    Map<Integer, Quest> quests = new HashMap<>();
 
     Random random = new Random();
 
@@ -27,25 +25,16 @@ public class QuestRepository {
     }
 
     public List<Quest> getAll() {
-        return new ArrayList<>(quests.values());
+        return em.createQuery("from Quest", Quest.class).getResultList();
     }
 
+    @Transactional
     public void deleteQuest(Quest quest) {
-        quests.remove(quest.getId());
-    }
-
-    @PostConstruct
-    public void init() {
-    }
-
-    @Override
-    public String toString() {
-        return "QuestRepository{" +
-                "questList=" + quests +
-                '}';
+        em.remove(quest);
     }
 
     @Scheduled(fixedDelayString = "${questCreationDelay}")
+    @Transactional
     public void createRandomQuest() {
         List<String> descriptions = new ArrayList<>();
         descriptions.add("Uratuj księżniczkę");
@@ -57,11 +46,12 @@ public class QuestRepository {
         createQuest(description);
     }
 
+    @Transactional
     public void update(Quest quest) {
-        quests.put(quest.getId(),quest);
+        em.merge(quest);
     }
 
     public Quest getQuest(Integer id) {
-        return quests.get(id);
+        return em.find(Quest.class, id);
     }
 }
