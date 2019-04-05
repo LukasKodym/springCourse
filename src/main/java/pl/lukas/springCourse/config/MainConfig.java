@@ -23,16 +23,4 @@ public class MainConfig {
         KnightRepository repo = new DBKnightRepository();
         return repo;
     }
-
-    @Autowired
-    public void securityUsers(AuthenticationManagerBuilder auth) throws Exception{
-        auth.inMemoryAuthentication()
-                .withUser("user1")
-                .password("user1")
-                .roles("USER")
-                .and()
-                .withUser("user2")
-                .password("user2")
-                .roles("ADMIN");
-    }
 }
