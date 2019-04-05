@@ -2,12 +2,16 @@ package pl.lukas.springCourse.domain;
 
 import org.hibernate.validator.constraints.Range;
 
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
+@Entity
 public class Knight {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @NotNull
@@ -18,6 +22,7 @@ public class Knight {
     @Range(min = 18, max = 60, message = "Rycerz musi mieć conajmniej 18 lat a nie więcej niż 60")
     private int age;
 
+    @OneToOne
     private Quest quest;
     private int level;
 
