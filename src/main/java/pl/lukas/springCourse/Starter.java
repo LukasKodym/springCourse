@@ -10,6 +10,8 @@ import pl.lukas.springCourse.domain.repository.KnightRepository;
 import pl.lukas.springCourse.domain.repository.PlayerInformationRepository;
 import pl.lukas.springCourse.domain.repository.QuestRepository;
 import pl.lukas.springCourse.services.QuestService;
+import pl.lukas.springCourse.utils.Role;
+import pl.lukas.springCourse.utils.RoleRepository;
 
 @Component()
 @Scope("singleton") // this setting is as a default, redundant to write this line
@@ -27,6 +29,9 @@ public class Starter implements CommandLineRunner {
     @Autowired
     PlayerInformationRepository playerInformationRepository;
 
+    @Autowired
+    RoleRepository roleRepository;
+
     @Override
     @Transactional
     public void run(String... args) throws Exception {
@@ -41,5 +46,13 @@ public class Starter implements CommandLineRunner {
         playerInformationRepository.createPlayerInformation(playerInformation1);
         PlayerInformation playerInformation2 = new PlayerInformation("user2", "user2");
         playerInformationRepository.createPlayerInformation(playerInformation2);
+
+        Role user1RoleUSER = new Role("user1", "USER");
+        Role user2RoleUSER = new Role("user2", "USER");
+        Role user2RoleADMIN = new Role("user2", "ADMIN");
+
+        roleRepository.persistRole(user1RoleUSER);
+        roleRepository.persistRole(user2RoleUSER);
+        roleRepository.persistRole(user2RoleADMIN);
     }
 }
