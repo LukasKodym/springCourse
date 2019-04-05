@@ -1,12 +1,21 @@
 package pl.lukas.springCourse.domain;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+//@Table(name = "Zadania")
 public class Quest {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+//    @Column(name = "Opis")
     private String description;
     private int reward = 100;
+
+//    @Transient // this annotation hide this field in database
     protected int lengthInSeconds = 10;
     private boolean started = false;
     private boolean completed = false;
