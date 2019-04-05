@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import pl.lukas.springCourse.domain.repository.KnightRepository;
 import pl.lukas.springCourse.domain.repository.QuestRepository;
 import pl.lukas.springCourse.services.QuestService;
@@ -22,6 +23,7 @@ public class Starter implements CommandLineRunner {
     QuestService questService;
 
     @Override
+    @Transactional
     public void run(String... args) throws Exception {
 
         questRepository.createRandomQuest();

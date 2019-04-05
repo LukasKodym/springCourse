@@ -2,23 +2,28 @@ package pl.lukas.springCourse.domain.repository;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import pl.lukas.springCourse.domain.Quest;
-import pl.lukas.springCourse.utils.Ids;
-
 import javax.annotation.PostConstruct;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.*;
 
 @Repository
 public class QuestRepository {
 
+    @PersistenceContext
+    private EntityManager em;
+
     Map<Integer, Quest> quests = new HashMap<>();
 
     Random random = new Random();
 
+    @Transactional
     public void createQuest(String description) {
-        int newId = Ids.generateNewId(quests.keySet());
-        Quest newQuest = new Quest(newId, description);
-        quests.put(newId, newQuest);
+        Quest newQuest = new Quest(description);
+        em.persist(newQuest);
+        System.out.println(newQuest);
     }
 
     public List<Quest> getAll() {
