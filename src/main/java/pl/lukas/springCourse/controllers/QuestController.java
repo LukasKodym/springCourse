@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import pl.lukas.springCourse.domain.Knight;
 import pl.lukas.springCourse.domain.PlayerInformation;
 import pl.lukas.springCourse.domain.Quest;
+import pl.lukas.springCourse.domain.repository.PlayerInformationRepository;
 import pl.lukas.springCourse.services.KnightService;
 import pl.lukas.springCourse.services.QuestService;
 
@@ -25,7 +26,7 @@ public class QuestController {
     QuestService questService;
 
     @Autowired
-    PlayerInformation playerInformation;
+    PlayerInformationRepository playerInformationRepository;
 
     @RequestMapping("/assignquest")
     public String assignQuest(@RequestParam("knightId") Integer id, Model model) {

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import pl.lukas.springCourse.components.TimeComponent;
 import pl.lukas.springCourse.domain.Knight;
 import pl.lukas.springCourse.domain.PlayerInformation;
+import pl.lukas.springCourse.domain.repository.PlayerInformationRepository;
 import pl.lukas.springCourse.services.KnightService;
 import javax.validation.Valid;
 import java.util.List;
@@ -22,7 +23,7 @@ public class KnightController {
     TimeComponent timeComponent;
 
     @Autowired
-    PlayerInformation playerInformation;
+    PlayerInformationRepository playerInformationRepository;
 
     @Autowired // in first step there was injected KnightRepository but better is to do via service
             KnightService service;
@@ -30,6 +31,7 @@ public class KnightController {
     @RequestMapping("/knights")
     public String getKnights(Model model) {
         List<Knight> allKnights = service.getAllKnights();
+        PlayerInformation playerInformation = playerInformationRepository.getFirst();
         model.addAttribute("knights", allKnights);
         model.addAttribute("timecomponent", timeComponent);
         model.addAttribute("playerinformation", playerInformation);
@@ -39,6 +41,7 @@ public class KnightController {
     @RequestMapping("/knight")
     public String getKnight(@RequestParam("id") Integer id, Model model) {
         Knight knight = service.getKnight(id);
+        PlayerInformation playerInformation = playerInformationRepository.getFirst();
         model.addAttribute("knight", knight);
         model.addAttribute("timecomponent", timeComponent);
         model.addAttribute("playerinformation", playerInformation);
@@ -47,6 +50,7 @@ public class KnightController {
 
     @RequestMapping("/newknight")
     public String createKnight(Model model) {
+        PlayerInformation playerInformation = playerInformationRepository.getFirst();
         model.addAttribute("knight", new Knight());
         model.addAttribute("timecomponent", timeComponent);
         model.addAttribute("playerinformation", playerInformation);

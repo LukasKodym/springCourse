@@ -2,23 +2,28 @@ package pl.lukas.springCourse.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import pl.lukas.springCourse.domain.Knight;
 import pl.lukas.springCourse.domain.PlayerInformation;
 import pl.lukas.springCourse.domain.repository.KnightRepository;
+import pl.lukas.springCourse.domain.repository.PlayerInformationRepository;
+import pl.lukas.springCourse.domain.repository.QuestRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 @Component
 public class KnightService {
 
     @Autowired
+    QuestRepository questRepository;
+
+    @Autowired
     KnightRepository knightRepository;
 
     @Autowired
-    PlayerInformation playerInformation;
+    PlayerInformationRepository playerInformationRepository;
 
     public List<Knight> getAllKnights() {
         return new ArrayList<>(knightRepository.getAllKnights());
@@ -62,13 +67,17 @@ public class KnightService {
         return sum;
     }
 
+    @Transactional
     public void getMyGold() {
-
         List<Knight> allKnights = getAllKnights();
         allKnights.forEach(knight -> {
-            if (knight.getQuest() != null) knight.getQuest().isCompleted();
+            if (knight.getQuest() != null) {
+                boolean completed = knight.getQuest().isCompleted();
+                if (completed) questRepository.update(knight.getQuest());
+            }
         });
-        int currentGold = playerInformation.getGold();
-        playerInformation.setGold(currentGold + collectReward());
+        PlayerInformation first = playerInformationRepository.getFirst();
+        int currentGold = first.getGold();
+        first.setGold(currentGold + collectReward());
     }
 }
