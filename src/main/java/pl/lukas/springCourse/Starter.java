@@ -54,5 +54,7 @@ public class Starter implements CommandLineRunner {
         roleRepository.persistRole(user1RoleUSER);
         roleRepository.persistRole(user2RoleUSER);
         roleRepository.persistRole(user2RoleADMIN);
+
+        System.out.println(roleRepository.getAll());
     }
 }

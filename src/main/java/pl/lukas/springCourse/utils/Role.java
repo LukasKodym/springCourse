@@ -12,14 +12,14 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    private String userName;
-    private String userRole;
+    private String username; // userName for jdbc = USER_NAME
+    private String role;
 
     public Role() {
     }
 
     public Role(String userName, String userRole) {
-        this.userName = userName;
-        this.userRole = userRole;
+        this.username = userName;
+        this.role = userRole;
     }
 }
