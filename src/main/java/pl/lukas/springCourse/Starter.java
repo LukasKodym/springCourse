@@ -31,10 +31,15 @@ public class Starter implements CommandLineRunner {
     @Transactional
     public void run(String... args) throws Exception {
 
-        playerInformationRepository.createPlayerInformation(new PlayerInformation());
         questRepository.createRandomQuest();
         questRepository.createRandomQuest();
         knightRepository.createKnight("Percival", 25);
         questService.assignRandomQuest("Percival");
+//        playerInformationRepository.createPlayerInformation(new PlayerInformation());
+
+        PlayerInformation playerInformation1 = new PlayerInformation("user1", "user1");
+        playerInformationRepository.createPlayerInformation(playerInformation1);
+        PlayerInformation playerInformation2 = new PlayerInformation("user2", "user2");
+        playerInformationRepository.createPlayerInformation(playerInformation2);
     }
 }
