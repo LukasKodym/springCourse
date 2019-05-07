@@ -1,5 +1,7 @@
 package pl.lukas.springCourse.domain.repository;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.Transactional;
 import pl.lukas.springCourse.domain.Knight;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
@@ -44,7 +46,8 @@ public class DBKnightRepository implements KnightRepository {
     @Override
     @Transactional
     public void deleteKnight(Integer id) {
-        em.remove(id);
+        em.remove(getKnightById(id));
+
     }
 
     @Override
