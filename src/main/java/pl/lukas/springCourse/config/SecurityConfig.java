@@ -24,6 +24,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().defaultSuccessUrl("/knights");
+        security.csrf().disable();
+        security.headers().frameOptions().disable();
+
     }
 
     @Autowired
